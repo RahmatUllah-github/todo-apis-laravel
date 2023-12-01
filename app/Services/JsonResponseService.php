@@ -39,7 +39,7 @@ class JsonResponseService
      */
     public static function unauthorizedErrorResponse(string $message, $data = []): JsonResponse
     {
-        return self::jsonResponse($message, $data, 403);
+        return self::jsonResponse($message, $data, 401);
     }
 
     /**

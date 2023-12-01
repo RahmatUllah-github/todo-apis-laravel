@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\JsonResponseService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/not-authenticated', function () {
+    return JsonResponseService::unauthorizedErrorResponse('Your are not authenticated. Please login first.');
+})->name('not-authenticated');
