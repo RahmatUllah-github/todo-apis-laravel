@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
         } catch (Throwable $th) {
             if ($user) {
-                $user->delete(); // if user is created then delete
+                $user->delete(); // if user is created and then something went wrong then delete
             }
 
             Log::info('**************************** Error in User registration ********************************');
