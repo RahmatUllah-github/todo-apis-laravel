@@ -27,4 +27,9 @@ Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword']
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('todos', TodoController::class);
+
+    Route::post('/logout', function (Request $request) {
+        $request->user()->currentAccessToken()->delete();
+        return response()->json(['message' => 'Logged out successfully.']);
+    });
 });
